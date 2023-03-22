@@ -1,4 +1,4 @@
-
+	
 package tests;
 
 import org.openqa.selenium.Keys;
@@ -27,6 +27,7 @@ import java.util.concurrent.TimeUnit;
 
 import pages.HomePage;
 import pages.LoginPage;
+import pages.RecentNewsFeedPage;
 import pages.RegisterationPage;
 import utils.Log;
 
@@ -37,6 +38,7 @@ public class BaseTest {
     public LoginPage  loginPage;
     public HomePage homePage;
     public RegisterationPage registerationPage;
+    public RecentNewsFeedPage recentNewsFeedPage;
  
     
     public WebDriver getDriver() {
@@ -58,7 +60,8 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         homePage=new HomePage(driver);
         registerationPage = new RegisterationPage(driver);
-      
+        recentNewsFeedPage = new RecentNewsFeedPage(driver);
+        
       
     }
         

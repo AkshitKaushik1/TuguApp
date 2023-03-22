@@ -13,12 +13,13 @@ public class HomePage extends BasePage{
 		// TODO Auto-generated constructor stub
 	}
 
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+
 	/**
 	 * Web Elements
 	 */
 	By loginregister        = By.xpath("//*[@id=\"html-body\"]/div[7]/header/div[3]/div[1]/div/a");
-
-
+	By Register				=By.xpath("//*[@id=\"login\"]/div[5]/div[2]/p/a");
 	/**
 	 * Variables
 	 */
