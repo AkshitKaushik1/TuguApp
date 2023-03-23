@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test.UploadImageTest">
+      <class name="test.UploadVideoTest">
         <methods>
           <include name="teardown"/>
-          <include name="classLevelSetup"/>
+          <include name="UploadVideo" invocation-numbers="0"/>
           <include name="methodLevelSetup"/>
-          <include name="validLoginTest" invocation-numbers="0"/>
+          <include name="classLevelSetup"/>
         </methods>
-      </class> <!-- test.UploadImageTest -->
+      </class> <!-- test.UploadVideoTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
