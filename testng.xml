@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+
+<suite name= "Integration Testing" >
+  
+   <listeners>
+      
+        <listener class-name="utils.TestListener"/>
+       
+    </listeners> 
+    
+    <test name="Registeration and Recent NewsTest">
+        <classes>
+			<class name="tests.LoginTests"></class>
+            <class name="tests.RegisterationTest"></class>
+            <class name="tests.RecentNewsFeedTest"></class> 
+			<class name="tests.MyGroupsTest"></class>
+			<class name="tests.MyPagesTest"></class>     
+        </classes>
+    </test>
+
+
+
+</suite> <!-- Suite -->
