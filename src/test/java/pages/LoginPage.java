@@ -1,46 +1,97 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import util.Log;
-public class LoginPage extends BasePage {
-    /*
-     * --**
-     * Constructor
-     */
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
-    /**
-     * Web Elements
-     */
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-    By userNameId                = By.xpath("//*[@id=\"username\"]");
-    By passwordId                = By.xpath("//*[@id=\"password\"]");
-    By loginButton            = By.xpath("//*[@id=\"login\"]/div[5]/div[1]/button");
-    
-   
-  
-    
-    /**
-     * Variables
-     */
-    String baseURL = ("https://tuguapp.com/");
-    
-    
-    /**
-     * Page Methods
-     * @throws InterruptedException 
-     */
-    
-    public LoginPage logintoTugu(String username, String password) throws InterruptedException {
-        Log.info("Trying to login Tugu.");
-        Thread.sleep(2000);
-        driver.get(baseURL);
-        Thread.sleep(7000);
-        writeText(userNameId, username);
-        writeText(passwordId, password);
-        Thread.sleep(5000);
-        click(loginButton);
-        return new LoginPage(driver);
-            }}
+import dev.failsafe.Timeout;
+import utils.JSErrorLogs;
+import utils.Log;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.util.concurrent.TimeUnit;
+import java.time.*;
+
+
+
+public class LoginPage extends BasePage {
+	/**
+	 * Constructor
+	 */
+	   public WebDriverWait wait;
+	
+	public LoginPage(WebDriver driver) {
+		super(driver);
+	}
+	/**
+	 * Variables
+	 */	
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+
+
+	/**
+	 * Web Elements
+	 */
+
+	By userName                	= By.xpath("//*[@id='username']");
+	By password              	= By.xpath("//*[@id='password']");
+	By loginButton             	= By.xpath("//*[@id=\"login\"]/div[5]/div[1]/button");
+
+	/**
+	 * Variables
+	 */
+	String baseURL = "https://tuguapp.com/";
+
+
+	/**
+	 * Page Methods
+	 * @throws InterruptedException 
+	 */
+
+	public void logintoTuguApp(String username, String Password) throws InterruptedException {
+		Log.info("Trying to login to Tugu App.");
+		
+		
+	//	Thread.sleep(15000);
+	
+		writeText(userName, username);
+		
+		writeText(password, Password);
+	
+		js.executeScript("window.scrollBy(0, 1500);");
+
+		click(loginButton);
+		
+		js.executeScript("window.scrollBy(0, -1500);");
+
+	} 
+	
+	public void logintoTuguApp2() throws InterruptedException {
+				
+		String username = "Addy123";
+		String Password = "addy.123";
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		Log.info("Trying to login to Tugu App.");
+			
+			 new WebDriverWait(driver, Duration.ofSeconds(40))
+		        .until(ExpectedConditions.elementToBeClickable(userName));
+			 Thread.sleep(3000);
+
+		writeText(userName, username);
+		
+		writeText(password, Password);
+		
+		js.executeScript("window.scrollBy(0, 1500);");
+
+		new WebDriverWait(driver, Duration.ofSeconds(10))
+        .until(ExpectedConditions.elementToBeClickable(loginButton));
+
+		click(loginButton);
+		new WebDriverWait(driver, Duration.ofSeconds(20));     
+	}
+
+}

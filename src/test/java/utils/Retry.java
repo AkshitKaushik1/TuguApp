@@ -1,15 +1,15 @@
-package util;
+package utils;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
-import static util.ExtentTestManager.getTest;
+import static utils.ExtentTestManager.getTest;
 
 import com.aventstack.extentreports.Status;
 
-import test.BaseTest;
+import tests.BaseTest;
 
 public class Retry implements IRetryAnalyzer {
     private        int count  = 0;

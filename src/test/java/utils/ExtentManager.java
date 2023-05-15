@@ -1,4 +1,4 @@
-package util;
+package utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class ExtentManager {
 
 
     public synchronized static ExtentReports createExtentReports() {
-        ExtentSparkReporter reporter = new ExtentSparkReporter("./extent-reports/extent-report.html");
+        ExtentSparkReporter reporter = new ExtentSparkReporter("./extent-report/extent-report.html");
         reporter.config().setTheme(Theme.DARK);
         reporter.config().setEncoding("utf-8");
         reporter.config().setReportName("Sample Extent Report");
@@ -43,7 +43,8 @@ public class ExtentManager {
 		File screeshot = ((TakesScreenshot)  BasePage.driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screeshot, new File(".//reports//"+fileName));
 	}
-    
+	
+	
 
 	public static void captureElementScreenshot(WebElement element) throws IOException {
 		

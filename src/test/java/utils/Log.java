@@ -1,6 +1,4 @@
-
-
-package util;
+package utils;
 
 import org.testng.log4testng.Logger;
 
@@ -9,8 +7,7 @@ public class Log {
     private static final Logger Log =  Logger.getLogger(Log.class);
     //Info Level Logs
     public static void info (String message) {
-       
-    	Log.info(message);
+        Log.info(message);
     }
     //Warn Level Logs
     public static void warn (String message) {
@@ -29,5 +26,4 @@ public class Log {
     public static void debug (String message) {
         Log.debug(message);
     }
-	
 }
